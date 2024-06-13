@@ -1,7 +1,6 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
-const Product = require("./models/product.model")
 const productRoute = require("./routes/product.route")
 require('dotenv').config();
 
@@ -11,7 +10,7 @@ app.use("/api/products", productRoute)
 mongoose.connect(`mongodb+srv://admin:${process.env.MONGO_DB_PASSWORD}@backenddb.mibfpma.mongodb.net/?retryWrites=true&w=majority&appName=BackendDB`)
 .then(() => {
     console.log("Connected to the DB...")
-    const PORT = process.env.PORT || 3000
+    const PORT = 3000
     app.listen(PORT, "0.0.0.0", () => {
         console.log("Server is running on port 3000")
     })
